@@ -74,7 +74,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
         <span className="block text-[15px] font-medium">{label}</span>
         {description && <span className="block text-sm text-ink-3">{description}</span>}
       </span>
-      <span className={cn("relative h-7 w-12 shrink-0 rounded-full transition-colors", checked ? "bg-leaf-600" : "bg-line-2")}>
+      <span className={cn("relative h-7 w-12 shrink-0 rounded-full transition-colors", checked ? "bg-navy-600" : "bg-line-2")}>
         <span className={cn("absolute top-0.5 size-6 rounded-full bg-white shadow-sm transition-transform", checked ? "translate-x-5.5" : "translate-x-0.5")} />
       </span>
     </button>

@@ -62,7 +62,7 @@ export function Chat({ job, me }: { job: Job; me: Role }) {
           const mine = m.from === me;
           return (
             <div key={m.id} className={cn("flex", mine ? "justify-end" : "justify-start")}>
-              <div className={cn("max-w-[78%] rounded-2xl px-3.5 py-2 text-[15px] leading-snug", mine ? "rounded-br-md bg-leaf-700 text-white" : "rounded-bl-md bg-mist-2 text-ink")}>
+              <div className={cn("max-w-[78%] rounded-2xl px-3.5 py-2 text-[15px] leading-snug", mine ? "rounded-br-md bg-navy-700 text-white" : "rounded-bl-md bg-mist-2 text-ink")}>
                 {m.text}
                 <div className={cn("mt-0.5 text-[10px] tabular-nums", mine ? "text-white/60" : "text-ink-3")}>{formatTime(m.at)}</div>
               </div>

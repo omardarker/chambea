@@ -42,7 +42,7 @@ export function PaymentPicker({ amount, onConfirm, label = "Confirmar y retener 
           </button>
         ))}
       </div>
-      <div className="flex items-start gap-2 rounded-2xl border border-leaf-200 bg-leaf-50 p-3 text-xs text-leaf-900">
+      <div className="flex items-start gap-2 rounded-2xl border border-navy-200 bg-navy-50 p-3 text-xs text-navy-900">
         <ShieldCheck className="mt-0.5 size-4 shrink-0" />
         <span>El dinero queda retenido por Chambea. Solo se libera cuando confirmas que el trabajo terminó bien. Los trabajos pagados por la app tienen garantía.</span>
       </div>

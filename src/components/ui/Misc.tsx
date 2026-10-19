@@ -36,7 +36,7 @@ export function Empty({ title, text, action }: { title: string; text?: string; a
 
 export function VerifiedMark({ verified, small }: { verified: boolean; small?: boolean }) {
   return verified ? (
-    <span className={cn("inline-flex items-center gap-1 font-medium text-leaf-700", small ? "text-[11px]" : "text-xs")}>
+    <span className={cn("inline-flex items-center gap-1 font-medium text-navy-700", small ? "text-[11px]" : "text-xs")}>
       <BadgeCheck className={small ? "size-3.5" : "size-4"} strokeWidth={2} /> Verificado
     </span>
   ) : (

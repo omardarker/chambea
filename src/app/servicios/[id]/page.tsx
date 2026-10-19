@@ -86,7 +86,7 @@ export default function ServicePage() {
             <h1 className="mt-3 text-[28px] font-semibold leading-tight tracking-tight">{service.title}</h1>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-2">{service.description || "El trabajador no agregó una descripción."}</p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <Chip tone={service.includesMaterials ? "green" : "neutral"}><Check className="size-3" /> {service.includesMaterials ? "Materiales incluidos" : "Solo mano de obra, materiales con boleta"}</Chip>
+              <Chip tone={service.includesMaterials ? "brand" : "neutral"}><Check className="size-3" /> {service.includesMaterials ? "Materiales incluidos" : "Solo mano de obra, materiales con boleta"}</Chip>
               <Chip tone="outline"><Clock className="size-3" /> {service.durationLabel}</Chip>
               <Chip tone="outline">Precio {unitLabel[service.unit]}</Chip>
             </div>
@@ -98,7 +98,7 @@ export default function ServicePage() {
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5 font-medium">
                   {worker.name}
-                  {worker.identityVerified && <ShieldCheck className="size-4 text-leaf-600" strokeWidth={2} />}
+                  {worker.identityVerified && <ShieldCheck className="size-4 text-navy-600" strokeWidth={2} />}
                 </div>
                 <div className="truncate text-sm text-ink-3">{worker.headline}</div>
                 <div className="mt-1 flex items-center gap-2 text-sm">

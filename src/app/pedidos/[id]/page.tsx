@@ -79,7 +79,7 @@ export default function JobPage() {
         <ol className="mb-8 grid grid-cols-5 gap-1">
           {steps.map((s, i) => (
             <li key={s} className="text-center">
-              <div className={cn("h-1.5 rounded-full", i <= idx ? "bg-leaf-600" : "bg-mist-2")} />
+              <div className={cn("h-1.5 rounded-full", i <= idx ? "bg-navy-600" : "bg-mist-2")} />
               <div className={cn("mt-1.5 text-[11px] leading-tight", i <= idx ? "font-medium text-ink" : "text-ink-4")}>{s}</div>
             </li>
           ))}
@@ -95,7 +95,7 @@ export default function JobPage() {
               </SectionTitle>
               {pending.length === 0 ? (
                 <Card className="p-6 text-center">
-                  <span className="relative mx-auto mb-3 block size-2.5 rounded-full bg-leaf-600 text-leaf-600 pulse-dot" />
+                  <span className="relative mx-auto mb-3 block size-2.5 rounded-full bg-navy-600 text-navy-600 pulse-dot" />
                   <div className="font-medium">Tu pedido ya lo ven los trabajadores de {sub.name.toLowerCase()}</div>
                   <div className="mt-1 text-sm text-ink-3">Las ofertas aparecen aquí. Suelen llegar en los primeros minutos.</div>
                 </Card>
@@ -115,7 +115,7 @@ export default function JobPage() {
                 <Link href={`/trabajadores/${worker.id}`} className="flex items-center gap-3">
                   <Avatar name={worker.name} hue={worker.hue} size="lg" />
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5 font-medium">{worker.name}{worker.identityVerified && <ShieldCheck className="size-4 text-leaf-600" strokeWidth={2} />}</div>
+                    <div className="flex items-center gap-1.5 font-medium">{worker.name}{worker.identityVerified && <ShieldCheck className="size-4 text-navy-600" strokeWidth={2} />}</div>
                     <div className="truncate text-sm text-ink-3">{worker.headline}</div>
                   </div>
                   <span className="text-sm font-medium text-ink-2">Ver perfil</span>
@@ -135,9 +135,9 @@ export default function JobPage() {
           )}
 
           {job.status === "por_confirmar" && (
-            <Card className="border-leaf-600 bg-leaf-50 p-5">
+            <Card className="border-navy-600 bg-navy-50 p-5">
               <div className="flex items-start gap-3">
-                <CircleCheck className="mt-0.5 size-6 shrink-0 text-leaf-700" />
+                <CircleCheck className="mt-0.5 size-6 shrink-0 text-navy-700" />
                 <div className="flex-1">
                   <div className="font-semibold">{worker?.name.split(" ")[0]} marcó el trabajo como terminado</div>
                   <p className="mt-1 text-sm text-ink-2">Revisa que todo esté bien. Al confirmar se libera el pago de {soles(job.agreedPrice ?? job.budget)}. Si algo no está bien, escríbele por el chat o abre una disputa.</p>
@@ -202,7 +202,7 @@ export default function JobPage() {
             <div className="mt-1 text-3xl font-semibold tabular-nums tracking-tight">{soles(job.agreedPrice ?? job.budget)}</div>
             {job.payment && (
               <div className="mt-3 flex items-center gap-2 text-sm">
-                <span className={cn("size-2 rounded-full", job.payment.status === "retenido" ? "bg-amber-ink" : "bg-leaf-600")} />
+                <span className={cn("size-2 rounded-full", job.payment.status === "retenido" ? "bg-amber-ink" : "bg-navy-600")} />
                 <span>{job.payment.status === "retenido" ? "Retenido por Chambea" : "Liberado al trabajador"} · {job.payment.method === "tarjeta" ? "Tarjeta" : job.payment.method === "yape" ? "Yape" : "Plin"}</span>
               </div>
             )}

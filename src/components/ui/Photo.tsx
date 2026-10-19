@@ -39,7 +39,7 @@ export function Photo({ tone, subcategoryId, label, className, ratio = "aspect-[
       className={cn("relative overflow-hidden rounded-2xl", ratio, className)}
       style={{ background: `linear-gradient(145deg, hsl(${tone} 28% 93%) 0%, hsl(${tone} 24% 84%) 100%)` }}
     >
-      <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #10140f 1px, transparent 0)", backgroundSize: "14px 14px" }} />
+      <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #12161c 1px, transparent 0)", backgroundSize: "14px 14px" }} />
       <SubIcon id={subcategoryId} className="absolute left-1/2 top-1/2 size-8 -translate-x-1/2 -translate-y-1/2 text-ink/25" />
       {label && <span className="absolute inset-x-3 bottom-2.5 truncate text-xs font-medium text-ink/70">{label}</span>}
     </div>

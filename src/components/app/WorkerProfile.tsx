@@ -34,9 +34,9 @@ export function WorkerProfile({ worker, viewer }: { worker: Worker; viewer: "cli
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="text-2xl font-semibold tracking-tight">{worker.name}</h1>
             {worker.identityVerified && (
-              <Chip tone="green"><ShieldCheck className="size-3.5" /> Identidad verificada</Chip>
+              <Chip tone="brand"><ShieldCheck className="size-3.5" /> Identidad verificada</Chip>
             )}
-            {worker.backgroundChecked && <Chip tone="green">Antecedentes revisados</Chip>}
+            {worker.backgroundChecked && <Chip tone="brand">Antecedentes revisados</Chip>}
           </div>
           <p className="mt-1 text-[15px] text-ink-2">{worker.headline}</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-3">
@@ -130,7 +130,7 @@ export function WorkerProfile({ worker, viewer }: { worker: Worker; viewer: "cli
             </Card>
           )}
           <p className="mt-2 text-xs text-ink-3">
-            <span className="font-medium text-leaf-700">Verificado</span>: Chambea revisó el documento. <span className="font-medium">Declarado</span>: lo indica el trabajador, sin revisión.
+            <span className="font-medium text-navy-700">Verificado</span>: Chambea revisó el documento. <span className="font-medium">Declarado</span>: lo indica el trabajador, sin revisión.
           </p>
         </div>
 

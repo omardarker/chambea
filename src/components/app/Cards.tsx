@@ -24,7 +24,7 @@ export function WorkerRow({ worker, sub, right, href }: { worker: Worker; sub?: 
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
           <span className="truncate font-medium">{worker.name}</span>
-          {worker.identityVerified && <ShieldCheck className="size-4 shrink-0 text-leaf-600" strokeWidth={2} />}
+          {worker.identityVerified && <ShieldCheck className="size-4 shrink-0 text-navy-600" strokeWidth={2} />}
           {trusted && <Heart className="size-3.5 shrink-0 fill-red-ink text-red-ink" strokeWidth={0} />}
         </div>
         <div className="flex items-center gap-2 text-[13px] text-ink-3">
@@ -55,7 +55,7 @@ export function ServiceCard({ service, worker }: { service: Service; worker: Wor
         </div>
         <p className="mt-1.5 line-clamp-2 text-sm text-ink-3">{service.description}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
-          <Chip tone={service.includesMaterials ? "green" : "neutral"}>{service.includesMaterials ? "Materiales incluidos" : "Solo mano de obra"}</Chip>
+          <Chip tone={service.includesMaterials ? "brand" : "neutral"}>{service.includesMaterials ? "Materiales incluidos" : "Solo mano de obra"}</Chip>
           <Chip tone="outline"><Clock className="size-3" /> {service.durationLabel}</Chip>
         </div>
         <div className="mt-4 flex items-center gap-2.5 border-t border-line pt-3">
@@ -63,7 +63,7 @@ export function ServiceCard({ service, worker }: { service: Service; worker: Wor
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1 text-sm font-medium">
               <span className="truncate">{worker.name}</span>
-              {worker.identityVerified && <ShieldCheck className="size-3.5 text-leaf-600" strokeWidth={2} />}
+              {worker.identityVerified && <ShieldCheck className="size-3.5 text-navy-600" strokeWidth={2} />}
             </div>
             <div className="text-xs text-ink-3">Responde en ~{worker.responseMinutes} min</div>
           </div>
@@ -74,12 +74,12 @@ export function ServiceCard({ service, worker }: { service: Service; worker: Wor
   );
 }
 
-export const statusLabel: Record<Job["status"], { label: string; tone: "neutral" | "green" | "amber" | "blue" | "red" }> = {
+export const statusLabel: Record<Job["status"], { label: string; tone: "neutral" | "brand" | "amber" | "blue" | "red" }> = {
   abierto: { label: "Recibiendo ofertas", tone: "amber" },
   asignado: { label: "Confirmado", tone: "blue" },
   en_curso: { label: "En curso", tone: "blue" },
   por_confirmar: { label: "Por confirmar", tone: "amber" },
-  completado: { label: "Completado", tone: "green" },
+  completado: { label: "Completado", tone: "brand" },
   cancelado: { label: "Cancelado", tone: "neutral" },
   expirado: { label: "Expirado", tone: "neutral" },
 };
@@ -123,7 +123,7 @@ export function JobCard({ job, perspective }: { job: Job; perspective: "cliente"
         <div className="mt-3 flex items-center justify-between border-t border-line pt-3 text-[13px]">
           {perspective === "cliente" ? (
             job.status === "abierto" ? (
-              <span className={cn("font-medium", job.offers.length ? "text-leaf-700" : "text-ink-3")}>
+              <span className={cn("font-medium", job.offers.length ? "text-navy-700" : "text-ink-3")}>
                 {job.offers.length ? plural(job.offers.length, "oferta recibida", "ofertas recibidas") : "Esperando ofertas"}
               </span>
             ) : worker ? (
@@ -143,7 +143,7 @@ export function JobCard({ job, perspective }: { job: Job; perspective: "cliente"
             {job.status === "abierto" && job.expiresAt ? (
               <><Clock className="size-3" /> {countdown(job.expiresAt)}</>
             ) : perspective === "trabajador" && myOffer ? (
-              <span className="font-medium text-leaf-700">Ofertaste {soles(myOffer.price)}</span>
+              <span className="font-medium text-navy-700">Ofertaste {soles(myOffer.price)}</span>
             ) : (
               relativeTime(job.createdAt)
             )}
@@ -162,7 +162,7 @@ export function OfferCard({ offer, job, onChoose, chosen }: { offer: Offer; job:
   if (!worker) return null;
   const diff = offer.price - job.budget;
   return (
-    <Card className={cn("p-4", chosen && "border-leaf-600 ring-1 ring-leaf-600", offer.status === "descartada" && "opacity-50")}>
+    <Card className={cn("p-4", chosen && "border-navy-600 ring-1 ring-navy-600", offer.status === "descartada" && "opacity-50")}>
       <div className="flex items-start gap-3">
         <Link href={`/trabajadores/${worker.id}?from=${job.id}`}>
           <Avatar name={worker.name} hue={worker.hue} />
@@ -170,7 +170,7 @@ export function OfferCard({ offer, job, onChoose, chosen }: { offer: Offer; job:
         <div className="min-w-0 flex-1">
           <Link href={`/trabajadores/${worker.id}?from=${job.id}`} className="flex items-center gap-1.5">
             <span className="truncate font-medium">{worker.name}</span>
-            {worker.identityVerified && <ShieldCheck className="size-4 shrink-0 text-leaf-600" strokeWidth={2} />}
+            {worker.identityVerified && <ShieldCheck className="size-4 shrink-0 text-navy-600" strokeWidth={2} />}
             {trusted && <Heart className="size-3.5 shrink-0 fill-red-ink text-red-ink" strokeWidth={0} />}
           </Link>
           <div className="flex flex-wrap items-center gap-x-2 text-[13px] text-ink-3">
@@ -183,7 +183,7 @@ export function OfferCard({ offer, job, onChoose, chosen }: { offer: Offer; job:
         </div>
         <div className="shrink-0 text-right">
           <div className="text-xl font-semibold tabular-nums tracking-tight">{soles(offer.price)}</div>
-          <div className={cn("text-[11px] font-medium", offer.kind === "acepta" ? "text-leaf-700" : "text-amber-ink")}>
+          <div className={cn("text-[11px] font-medium", offer.kind === "acepta" ? "text-navy-700" : "text-amber-ink")}>
             {offer.kind === "acepta" ? "Acepta tu precio" : `+${soles(diff)} sobre tu oferta`}
           </div>
         </div>
@@ -194,12 +194,12 @@ export function OfferCard({ offer, job, onChoose, chosen }: { offer: Offer; job:
           <Link href={`/trabajadores/${worker.id}?from=${job.id}`} className="inline-flex h-10 flex-1 items-center justify-center rounded-full border border-line-2 text-sm font-medium hover:bg-mist">
             Ver perfil
           </Link>
-          <button onClick={onChoose} className="inline-flex h-10 flex-1 items-center justify-center rounded-full bg-leaf-700 text-sm font-medium text-white hover:bg-leaf-800">
+          <button onClick={onChoose} className="inline-flex h-10 flex-1 items-center justify-center rounded-full bg-navy-700 text-sm font-medium text-white hover:bg-navy-800">
             Elegir por {soles(offer.price)}
           </button>
         </div>
       )}
-      {chosen && <div className="mt-3 text-center text-xs font-medium text-leaf-700">Oferta elegida</div>}
+      {chosen && <div className="mt-3 text-center text-xs font-medium text-navy-700">Oferta elegida</div>}
     </Card>
   );
 }

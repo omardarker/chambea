@@ -90,7 +90,7 @@ export default function WorkerJobPage() {
               )}
               <div className="mt-4 flex flex-wrap gap-1.5">
                 <Chip tone="neutral">{job.laborOnly ? "Solo mano de obra" : "Pide precio con materiales"}</Chip>
-                {job.wantsVisit && <Chip tone="green">Acepta visita de diagnóstico</Chip>}
+                {job.wantsVisit && <Chip tone="brand">Acepta visita de diagnóstico</Chip>}
                 {job.photoCount > 0 && <Chip tone="neutral"><Camera className="size-3" /> {plural(job.photoCount, "foto", "fotos")}</Chip>}
                 {job.offers.length > 0 && <Chip tone="amber">{plural(job.offers.length, "oferta ya enviada", "ofertas ya enviadas")}</Chip>}
               </div>
@@ -153,7 +153,7 @@ export default function WorkerJobPage() {
           )}
 
           {isMine && (job.status === "asignado" || job.status === "en_curso") && (
-            <Card className="border-leaf-600 bg-leaf-50 p-5">
+            <Card className="border-navy-600 bg-navy-50 p-5">
               <div className="font-semibold">{job.status === "asignado" ? "Te eligieron. Coordina por chat y marca cuando empieces." : "Trabajo en curso"}</div>
               <p className="mt-1 text-sm text-ink-2">El pago de {soles(job.agreedPrice ?? 0)} ya está retenido por Chambea. Se libera cuando el cliente confirme. Si en sitio ves algo distinto a lo descrito, propón un ajuste antes de seguir.</p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -179,7 +179,7 @@ export default function WorkerJobPage() {
 
           {isMine && job.status === "completado" && (
             <Card className="p-5">
-              <div className="flex items-center gap-2 font-semibold"><CircleCheck className="size-5 text-leaf-700" /> Trabajo confirmado. Recibiste {soles(Math.round((job.agreedPrice ?? 0) * 0.9))}.</div>
+              <div className="flex items-center gap-2 font-semibold"><CircleCheck className="size-5 text-navy-700" /> Trabajo confirmado. Recibiste {soles(Math.round((job.agreedPrice ?? 0) * 0.9))}.</div>
               {!job.workerReviewed && (
                 <>
                   <p className="mt-1 text-sm text-ink-3">Califica a {client?.name.split(" ")[0]}: otros trabajadores verán cómo es tratar con este cliente.</p>

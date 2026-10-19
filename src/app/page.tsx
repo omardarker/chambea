@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <div className="space-y-10">
       <section>
-        <p className="text-sm font-medium text-leaf-700">{greeting}, {client?.name.split(" ")[0]}</p>
+        <p className="text-sm font-medium text-navy-700">{greeting}, {client?.name.split(" ")[0]}</p>
         <h1 className="mt-1 text-[32px] font-semibold leading-[1.05] tracking-tight sm:text-5xl">
           ¿Qué necesita<br className="sm:hidden" /> tu casa hoy?
         </h1>
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <section className="grid gap-3 sm:grid-cols-2">
         <Link href="/pedidos/nuevo" className="group block">
-          <div className="flex h-full flex-col justify-between rounded-3xl bg-leaf-700 p-5 text-white transition-colors group-hover:bg-leaf-800 sm:p-6">
+          <div className="flex h-full flex-col justify-between rounded-3xl bg-navy-700 p-5 text-white transition-colors group-hover:bg-navy-800 sm:p-6">
             <div>
               <div className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-xs font-medium"><Sparkles className="size-3.5" /> Lo más usado</div>
               <h2 className="mt-4 text-2xl font-semibold leading-tight tracking-tight">Publica tu pedido y pon tu precio</h2>
@@ -94,7 +94,7 @@ export default function HomePage() {
               {c.subcategories.map((s) => (
                 <Link key={s.id} href={`/buscar?sub=${s.id}`} className="block w-36 shrink-0 sm:w-auto">
                   <Card className="flex h-full flex-col gap-3 p-3.5 transition-colors hover:border-line-2">
-                    <span className="grid size-10 place-items-center rounded-xl bg-leaf-50 text-leaf-800">
+                    <span className="grid size-10 place-items-center rounded-xl bg-navy-50 text-navy-800">
                       <SubIcon id={s.id} className="size-5" />
                     </span>
                     <span className="text-[14px] font-medium leading-tight">{s.name}</span>

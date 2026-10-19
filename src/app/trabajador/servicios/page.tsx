@@ -37,7 +37,7 @@ export default function WorkerServicesPage() {
                   <div className="mt-1 text-sm text-ink-3">{s.description}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     <Chip tone="outline">{getSubcategory(s.subcategoryId).name}</Chip>
-                    <Chip tone={s.includesMaterials ? "green" : "neutral"}>{s.includesMaterials ? "Materiales incluidos" : "Solo mano de obra"}</Chip>
+                    <Chip tone={s.includesMaterials ? "brand" : "neutral"}>{s.includesMaterials ? "Materiales incluidos" : "Solo mano de obra"}</Chip>
                     <Chip tone="neutral">{s.durationLabel}</Chip>
                   </div>
                 </div>

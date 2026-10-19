@@ -30,7 +30,7 @@ const workerNav = [
 function Logo() {
   return (
     <span className="inline-flex items-center gap-2 select-none">
-      <span className="grid size-7 place-items-center rounded-[9px] bg-leaf-700">
+      <span className="grid size-7 place-items-center rounded-[9px] bg-navy-700">
         <svg viewBox="0 0 20 20" className="size-4" fill="none" aria-hidden>
           <path d="M4 11.5 8.5 16 16 5" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -97,8 +97,8 @@ export function Shell({ children }: { children: ReactNode }) {
                 className={cn("rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors", isActive(pathname, n.href, role) ? "bg-ink text-white" : "text-ink-2 hover:bg-mist-2")}
               >
                 {n.label}
-                {n.href === "/pedidos" && openOffersForMe > 0 && <span className="ml-1.5 rounded-full bg-leaf-600 px-1.5 text-[11px] text-white">{openOffersForMe}</span>}
-                {n.href === "/trabajador/trabajos" && pendingForWorker > 0 && <span className="ml-1.5 rounded-full bg-leaf-600 px-1.5 text-[11px] text-white">{pendingForWorker}</span>}
+                {n.href === "/pedidos" && openOffersForMe > 0 && <span className="ml-1.5 rounded-full bg-navy-600 px-1.5 text-[11px] text-white">{openOffersForMe}</span>}
+                {n.href === "/trabajador/trabajos" && pendingForWorker > 0 && <span className="ml-1.5 rounded-full bg-navy-600 px-1.5 text-[11px] text-white">{pendingForWorker}</span>}
               </Link>
             ))}
           </nav>
@@ -146,7 +146,7 @@ export function Shell({ children }: { children: ReactNode }) {
               <Link key={n.href} href={n.href} className={cn("relative flex flex-col items-center justify-center gap-1 text-[11px] font-medium", active ? "text-ink" : "text-ink-3")}>
                 <n.icon className="size-[22px]" strokeWidth={active ? 2.2 : 1.8} />
                 {n.label}
-                {badge > 0 && <span className="absolute right-[calc(50%-22px)] top-2 rounded-full bg-leaf-600 px-1.5 text-[10px] leading-4 text-white">{badge}</span>}
+                {badge > 0 && <span className="absolute right-[calc(50%-22px)] top-2 rounded-full bg-navy-600 px-1.5 text-[10px] leading-4 text-white">{badge}</span>}
               </Link>
             );
           })}
@@ -180,7 +180,7 @@ function Toast() {
   return (
     <div className="rise pointer-events-none fixed inset-x-0 top-16 z-50 flex justify-center px-4">
       <div className="pointer-events-auto flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-white shadow-float">
-        <span className={cn("relative size-2 rounded-full", toast.tone === "ok" ? "bg-leaf-400 pulse-dot" : "bg-amber-300 pulse-dot")} />
+        <span className={cn("relative size-2 rounded-full", toast.tone === "ok" ? "bg-navy-400 pulse-dot" : "bg-amber-300 pulse-dot")} />
         {toast.text}
       </div>
     </div>

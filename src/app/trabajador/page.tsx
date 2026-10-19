@@ -28,7 +28,7 @@ export default function WorkerHomePage() {
   return (
     <div className="space-y-8">
       <section>
-        <p className="text-sm font-medium text-leaf-700">Modo trabajador · demo</p>
+        <p className="text-sm font-medium text-navy-700">Modo trabajador · demo</p>
         <h1 className="mt-1 text-[28px] font-semibold leading-tight tracking-tight sm:text-3xl">Hola, {worker.name.split(" ")[0]}</h1>
         <p className="mt-1 text-[15px] text-ink-3">Pedidos abiertos en {worker.subcategoryIds.map((s) => getSubcategory(s).name.toLowerCase()).join(" y ")}.</p>
         <div className="mt-4">
